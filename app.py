@@ -15,6 +15,7 @@ from datetime import datetime
 from typing import Dict, List, Optional, Any
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from dotenv import load_dotenv
 
 # Add the current directory to Python path to help with imports
@@ -50,6 +51,9 @@ load_dotenv()
 # Initialize Flask app
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key')
+
+# Enable CORS for Replit frontend
+CORS(app, origins=['https://*.replit.app', 'https://*.replit.dev', 'http://localhost:*'])
 
 # Setup logging
 setup_logging()
@@ -588,3 +592,5 @@ if __name__ == '__main__':
         debug=debug,
         threaded=True
     )
+
+
