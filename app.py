@@ -15,8 +15,15 @@ from datetime import datetime
 from typing import Dict, List, Optional, Any
 
 from flask import Flask, request, jsonify
-from flask_cors import CORS
 from dotenv import load_dotenv
+
+# Try to import CORS, make it optional for now
+try:
+    from flask_cors import CORS
+    CORS_AVAILABLE = True
+except ImportError:
+    CORS_AVAILABLE = False
+    print("flask-cors not available, running without CORS support")
 
 # Add the current directory to Python path to help with imports
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -52,8 +59,12 @@ load_dotenv()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key')
 
-# Enable CORS for Replit frontend
-CORS(app, origins=['https://*.replit.app', 'https://*.replit.dev', 'http://localhost:*'])
+# Enable CORS for Replit frontend if available
+if CORS_AVAILABLE:
+    CORS(app, origins=['https://*.replit.app', 'https://*.replit.dev', 'http://localhost:*'])
+    print("CORS enabled for Replit frontend")
+else:
+    print("Running without CORS - update requirements.txt and redeploy to enable frontend connection")
 
 # Setup logging
 setup_logging()
@@ -592,5 +603,3 @@ if __name__ == '__main__':
         debug=debug,
         threaded=True
     )
-
-
