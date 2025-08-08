@@ -1,0 +1,6 @@
+python = "3.11"
+
+[env]
+VIRTUAL_ENV = "/home/runner/${REPL_SLUG}/venv"
+PATH = "${VIRTUAL_ENV}/bin"
+PYTHONPATH = "$PYTHONHOME/lib/python3.11:${VIRTUAL_ENV}/lib/python3.11/site-packages"

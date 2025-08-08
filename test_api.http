@@ -1,0 +1,23 @@
+# Test your Railway deployed API
+# Replace YOUR_RAILWAY_URL with your actual Railway URL
+
+### Health Check
+GET https://YOUR_RAILWAY_URL/health
+
+### API Documentation
+GET https://YOUR_RAILWAY_URL/
+
+### Test Yelp Scraping
+GET https://YOUR_RAILWAY_URL/scrape?platform=yelp&url=https://www.yelp.com/biz/joe-allen-new-york
+
+### Test Amazon Scraping
+GET https://YOUR_RAILWAY_URL/scrape?platform=amazon&url=https://www.amazon.com/dp/B08N5WRWNW
+
+### Get Latest Data
+GET https://YOUR_RAILWAY_URL/latest
+
+### Test with Different Yelp Business
+GET https://YOUR_RAILWAY_URL/scrape?platform=yelp&url=https://www.yelp.com/biz/tartine-bakery-san-francisco
+
+### Test with Another Amazon Product
+GET https://YOUR_RAILWAY_URL/scrape?platform=amazon&url=https://www.amazon.com/dp/B07XJ8C8F5

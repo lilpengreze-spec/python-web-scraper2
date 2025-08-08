@@ -1,0 +1,37 @@
+# Test your enhanced scraper with review links
+
+# Replace YOUR_URL with your actual deployment URL
+
+### Test Platforms Endpoint
+GET http://localhost:8080/platforms
+
+### Test Universal Scraper with Walmart (will show enhanced review format)
+GET http://localhost:8080/universal?url=https://www.walmart.com/ip/test
+
+### Test Yelp with Enhanced Links
+GET http://localhost:8080/scrape?yelp_url=https://www.yelp.com/biz/joe-allen-new-york
+
+### Test Health Check
+GET http://localhost:8080/health
+
+### Test Latest Data
+GET http://localhost:8080/latest
+
+# Example Response Format (with enhanced links):
+# {
+#   "success": true,
+#   "data": {
+#     "reviews": [
+#       {
+#         "reviewer_name": "John D.",
+#         "rating": 5,
+#         "star_display": "⭐⭐⭐⭐⭐ (5/5)",
+#         "review_text": "Great product! Highly recommend.",
+#         "date": "2024-01-15",
+#         "review_url": "https://www.walmart.com/reviews/...",
+#         "review_link": "🔗 View on Walmart: https://www.walmart.com/reviews/...",
+#         "platform": "Walmart"
+#       }
+#     ]
+#   }
+# }

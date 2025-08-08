@@ -1,0 +1,72 @@
+# Enhanced API Testing - Intelligent Review Search
+# Your scraper now supports keyword-based filtering and intelligent search!
+
+### 🏠 Home - See all new features
+GET http://localhost:8080/
+
+### 🔍 INTELLIGENT SEARCH EXAMPLES:
+
+### Standing Desk - Assembly Reviews Only
+GET http://localhost:8080/search?url=https://www.walmart.com/ip/standing-desk&keywords=assembly,setup,instructions&sort_by=relevance
+
+### Office Chair - Comfort & Quality Reviews (4+ stars only)
+GET http://localhost:8080/search?url=https://www.target.com/p/office-chair&categories=comfort,quality&min_rating=4
+
+### Electronics - Durability Reviews (Positive sentiment)
+GET http://localhost:8080/search?url=https://www.bestbuy.com/site/product&keywords=durability,reliable,lasting&sentiment=positive
+
+### Furniture - Value for Money Reviews
+GET http://localhost:8080/search?url=https://www.wayfair.com/furniture&categories=value,price&keywords=worth,affordable
+
+### Product Reviews - Size & Fit Issues
+GET http://localhost:8080/search?url=https://www.amazon.com/dp/B123&categories=size&keywords=too big,too small,perfect size
+
+### Customer Service Experience Reviews
+GET http://localhost:8080/search?url=https://www.ebay.com/product&categories=customer_service&sentiment=negative
+
+### 🏪 PLATFORM & CATEGORY DISCOVERY:
+
+### Get All Supported Platforms
+GET http://localhost:8080/platforms
+
+### Get Available Filter Categories
+GET http://localhost:8080/categories
+
+### 🔧 BASIC SCRAPING (Original functionality):
+
+### Universal Platform Scraper
+GET http://localhost:8080/universal?url=https://www.walmart.com/ip/product
+
+### Traditional Yelp Scraping
+GET http://localhost:8080/scrape?yelp_url=https://www.yelp.com/biz/restaurant
+
+### Traditional Amazon Scraping  
+GET http://localhost:8080/scrape?amazon_url=https://www.amazon.com/dp/B08N5WRWNW
+
+### ❤️ Health Check
+GET http://localhost:8080/health
+
+### 📊 Latest Data
+GET http://localhost:8080/latest
+
+# 🎯 EXAMPLE USE CASES:
+
+# 1. "I want standing desk reviews that mention assembly difficulty"
+#    GET /search?url=walmart.com/standing-desk&keywords=assembly,difficult,hard&categories=assembly
+
+# 2. "Show me positive reviews about this chair's comfort"
+#    GET /search?url=target.com/office-chair&categories=comfort&sentiment=positive&min_rating=4
+
+# 3. "Find reviews about product quality and durability"
+#    GET /search?url=amazon.com/product&categories=quality,durability&sort_by=relevance
+
+# 4. "Show me recent negative reviews about customer service"
+#    GET /search?url=bestbuy.com/product&categories=customer_service&sentiment=negative&sort_by=date
+
+# 🚀 RESPONSE FORMAT INCLUDES:
+# - Keyword relevance percentage
+# - Sentiment analysis (positive/negative/neutral)
+# - Category classification
+# - Visual star ratings (⭐⭐⭐⭐⭐)
+# - Clickable review links
+# - Review insights and statistics
